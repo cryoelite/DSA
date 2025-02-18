@@ -3,6 +3,7 @@
 base_url=$1
 problem_input_txt_name="input.txt"
 problem_output_txt_name="output.txt"
+problem_solution_md_name="solution.md"
 problem_file_name="sol.cpp"
 
 echo "Setting up a new online problem from $base_url"
@@ -61,6 +62,7 @@ mkdir -p $outdir
 echo "Creating base files in the dir"
 touch $outdir/$problem_input_txt_name
 touch $outdir/$problem_output_txt_name
+touch $outdir/$problem_solution_md_name
 printf "//Problem: $base_url" > "$outdir/$problem_file_name" 
 
 echo "Finished creating problem directory $outdir and problem file $outdir/$problem_file_name"
