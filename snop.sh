@@ -46,9 +46,8 @@ parse_fragment() {
 }
 #From https://stackoverflow.com/a/45977232/13036358 and https://stackoverflow.com/a/63993578/13036358
 
-domain=$(parse_host | cut -d "." -f 1) #Get domain name, if its an IP like 192.168.1.2 then just 192, if its a domain like abc.com then get abc
+domain=$(parse_host | rev| cut -d "." -f 2 | rev) #Get domain name, if its an IP like 192.168.1.2 then just 1.2, if its a domain like abc.com then get abc, and if its something like www.x.y.z.com then just get z
 problem_name=$(parse_path | rev | cut -d "/" -f 1 | rev) #Reverse the path from abc/xyz to zyx/cba then get zyx and reverse it back to xyz, getting the last item
-
 echo "Normalizing $domain and $problem_name to form a bash-safe directory name"
 safe_domain=$(echo "$domain" | iconv --to-code ASCII//TRANSLIT)
 safe_problem_name=$(echo "$problem_name" | iconv --to-code ASCII//TRANSLIT)
