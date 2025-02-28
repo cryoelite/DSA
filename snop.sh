@@ -62,6 +62,8 @@ echo "Creating base files in the dir"
 touch $outdir/$problem_input_txt_name
 touch $outdir/$problem_output_txt_name
 touch $outdir/$problem_solution_md_name
-printf "//Problem: $base_url" > "$outdir/$problem_file_name" 
+printf "//Problem: $base_url" > "$outdir/$problem_file_name"
+printf "# $safe_problem_name \n## Input \n## Problem \n## Output \n## Constraints \n## Observations \n## Solution \nTC: O() SC: O() \n" > "$outdir/$problem_solution_md_name"
+ 
 
 echo "Finished creating problem directory $outdir and problem file $outdir/$problem_file_name"
