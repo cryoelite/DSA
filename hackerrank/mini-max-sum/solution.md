@@ -9,7 +9,7 @@ min sum and max sum
 arr[i] >=1 and <= 10^9
 ## Observations 
 Each element is positive so we can use an unsigned integer, and the range is 1 to 10^9, so we have to use long long int, or unsigned long long int.
-The sum would be within 10^9 or at most 10^10.
+The sum would be within 10^10.
 ## Solution
 One simple solution is to sort, and then we know the first 4 are the smallest elements and the last 4 are the biggest. 
 TC is O(nlogn) and SC would be O(1)
