@@ -1,33 +1,29 @@
-//Problem: https://www.hackerrank.com/challenges/kangaroo/problem?isFullScreen=true
-
+// Problem: https://www.hackerrank.com/challenges/kangaroo/problem?isFullScreen=true
 
 #include <iostream>
-#include <vector>
+#include <string>
+#include <cmath>
 class Alg
 {
 public:
-    int n;
-    std::vector<unsigned long int> arr;
+    unsigned short int x1{}, v1{}, x2{}, v2{};
 
     Alg()
     {
-        std::cin >> n;
-        arr = std::vector<unsigned long int>(n, 0);
-
-        for (size_t i = 0; i < n; i++)
-        {
-            std::cin >> arr[i];
-        }
+        std::cin >> x1 >> v1 >> x2 >> v2;
     }
 
-    unsigned long long int compute()
+    std::string compute()
     {
-        unsigned long long int result{0};
-        for (int i{0}; i < n; ++i)
+        if (v2 - v1 == 0 || x1 - x2 == 0)
         {
-            result += arr[i];
+            return "NO";
         }
-        return result;
+        double y{static_cast<double>((x1 - x2)) / (v2 - v1)};
+        if (y > 0 && y == std::floor(y)) {
+            return "YES";
+        }
+        return "NO";
     }
 
     void compute_and_output()
