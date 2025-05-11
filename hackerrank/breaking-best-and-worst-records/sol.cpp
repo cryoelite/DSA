@@ -1,37 +1,49 @@
-// Problem: <url>
+// Problem: https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem?isFullScreen=true
 
 #include <iostream>
 #include <vector>
 class Alg
 {
 public:
-    int n{};
-    std::vector<unsigned long int> arr{};
+    unsigned short int n;
+    std::vector<unsigned long int> scores;
 
     Alg()
     {
         std::cin >> n;
-        arr = std::vector<unsigned long int>(n, 0);
+        scores = std::vector<unsigned long int>(n, 0);
 
         for (size_t i = 0; i < n; i++)
         {
-            std::cin >> arr[i];
+            std::cin >> scores[i];
         }
     }
 
-    unsigned long long int compute()
+    std::vector<unsigned short int> compute()
     {
-        unsigned long long int result{0};
-        for (size_t i{0}; i < n; ++i)
+        auto result{std::vector<unsigned short int>(2, 0)};
+        unsigned long int max_elem{scores[0]};
+        unsigned long int min_elem{scores[0]};
+        for (int i{0}; i < n; ++i)
         {
-            result += arr[i];
+            if (scores[i] > max_elem)
+            {
+                max_elem = scores[i];
+                ++result[0];
+            }
+            else if(scores[i] < min_elem)
+            {
+                min_elem = scores[i];
+                ++result[1];
+            }
         }
         return result;
     }
 
     void compute_and_output()
     {
-        std::cout << compute();
+        auto result{compute()};
+        std::cout << result[0] << " " << result[1];
         std::cout << std::endl;
     }
 };

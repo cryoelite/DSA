@@ -1,30 +1,55 @@
-// Problem: <url>
+// Problem: https://www.hackerrank.com/challenges/the-birthday-bar
 
 #include <iostream>
 #include <vector>
 class Alg
 {
 public:
-    int n{};
-    std::vector<unsigned long int> arr{};
+    unsigned short int n{}, d{}, m{};
+    std::vector<unsigned short int> s{};
 
     Alg()
     {
         std::cin >> n;
-        arr = std::vector<unsigned long int>(n, 0);
+        s = std::vector<unsigned short int>(n, 0);
 
         for (size_t i = 0; i < n; i++)
         {
-            std::cin >> arr[i];
+            std::cin >> s[i];
         }
+
+        std::cin >> d >> m;
     }
 
-    unsigned long long int compute()
+    unsigned short int compute()
     {
-        unsigned long long int result{0};
-        for (size_t i{0}; i < n; ++i)
+        unsigned short int result{0};
+        unsigned short int seg_count{0};
+        unsigned short int seg_sum{0};
+        unsigned short int i{0};
+        while (i <= n - m)
         {
-            result += arr[i];
+            for (unsigned short int j{i}; j <= i + m; ++j)
+            {
+                ++seg_count;
+                seg_sum += s[j];
+
+                if (seg_count == m && seg_sum == d)
+                {
+
+                    ++result;
+                    break;
+                }
+                else if (seg_sum > d)
+                {
+
+                    break;
+                }
+            }
+
+            seg_count = 0;
+            seg_sum = 0;
+            ++i;
         }
         return result;
     }
