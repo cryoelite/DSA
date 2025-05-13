@@ -21,7 +21,7 @@ The segments can overlap, this is not given in the question but in the examples.
 We iterate from `i=0` to `i<=n-m` and for each iteration we do a subiteration, where we track the current sum and the current no. of elements, if the current sum is exactly `d` and current no. of elements is exactly `m`, then we increment the total no. of segments found count and break out of this iteration, then for the next element of i we repeat and so on.
 The reason we go till n-m is because when we are beyond it, we won't have m elements to satisfy the second requirement so no point in iterating beyond it.
 
-TC: O(n^2) SC: O(1) Time taken to solve: 1 hr
+TC: O(nm) SC: O(1) Time taken to solve: 1 hr
 As we iterate in worst case, n(n-1)+n(n-2)+n(n-3)...+n(n-n).
 
 ## Mistakes made
