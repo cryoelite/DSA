@@ -29,7 +29,7 @@ public:
             ++temp[elem % k];
         }
 
-        for (unsigned short int i{0}; i < k/2; ++i)
+        for (unsigned short int i{0}; i <= k/2; ++i)
         {
             unsigned short int j{(k - i) % k};
             if (i == j)
