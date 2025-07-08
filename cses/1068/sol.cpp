@@ -1,4 +1,4 @@
-// Problem: <url>
+//Problem: https://cses.fi/problemset/task/1068
 
 #include <iostream>
 #include <vector>
@@ -36,15 +36,6 @@ public:
         std::cout << std::endl;
     }
 };
-
-class Solution {
-
-public:
-  bool hasDuplicate(std::vector<unsigned long int> &nums) {
-    return Alg(nums.size(), nums).compute();
-  }
-};
-
 
 /// If argv has a value "LOCAL", then it is for local testing mode, otherwise,
 /// it is for the online judge.

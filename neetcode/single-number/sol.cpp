@@ -1,4 +1,4 @@
-// Problem: <url>
+// Problem: https://neetcode.io/problems/single-number
 
 #include <iostream>
 #include <vector>
@@ -6,26 +6,26 @@ class Alg
 {
 public:
     int n{};
-    std::vector<unsigned long int> arr{};
+    std::vector<int> arr{};
 
     Alg()
     {
         std::cin >> n;
-        arr = std::vector<unsigned long int>(n, 0);
+        arr = std::vector<int>(n, 0);
 
         for (size_t i = 0; i < n; i++)
         {
             std::cin >> arr[i];
         }
     }
-    Alg(int n, std::vector<unsigned long int> &arr) : n(n), arr(std::move(arr)) {}
+    Alg(int n, std::vector<int> &arr) : n(n), arr(std::move(arr)) {}
 
-    unsigned long long int compute()
+    int compute()
     {
-        unsigned long long int result{0};
+        int result{0};
         for (size_t i{0}; i < n; ++i)
         {
-            result += arr[i];
+            result ^= arr[i];
         }
         return result;
     }
@@ -37,14 +37,15 @@ public:
     }
 };
 
-class Solution {
+class Solution
+{
 
 public:
-  bool hasDuplicate(std::vector<unsigned long int> &nums) {
-    return Alg(nums.size(), nums).compute();
-  }
+    int singleNumber(std::vector<int> &nums)
+    {
+        return Alg(nums.size(), nums).compute();
+    }
 };
-
 
 /// If argv has a value "LOCAL", then it is for local testing mode, otherwise,
 /// it is for the online judge.

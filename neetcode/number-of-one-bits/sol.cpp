@@ -1,4 +1,4 @@
-// Problem: <url>
+//Problem: https://neetcode.io/problems/number-of-one-bits
 
 #include <iostream>
 #include <vector>
