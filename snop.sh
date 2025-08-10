@@ -4,7 +4,7 @@ base_url=$1
 problem_input_txt_name="input.txt"
 problem_output_txt_name="output.txt"
 problem_solution_md_name="solution.md"
-problem_file_name="sol.cpp"
+problem_file_name="main.cpp"
 
 echo "Setting up a new online problem from $base_url"
 

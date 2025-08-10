@@ -1,26 +1,27 @@
-// Problem: <url>
+// Problem: https://neetcode.io/problems/single-number
 
 #include <iostream>
 #include <vector>
 class Alg {
 public:
-  int n{};
-  std::vector<unsigned long int> arr{};
+  size_t n{};
+  std::vector<int> nums{};
 
   Alg() {
     std::cin >> n;
-    arr = std::vector<unsigned long int>(n, 0);
+    nums = std::vector<int>(n, 0);
 
     for (size_t i = 0; i < n; i++) {
-      std::cin >> arr[i];
+      std::cin >> nums[i];
     }
   }
-  Alg(int n, std::vector<unsigned long int> &arr) : n(n), arr(std::move(arr)) {}
+  Alg(int n, std::vector<int> &arr) : n(n), nums(std::move(arr)) {}
 
-  unsigned long long int compute() {
-    unsigned long long int result{0};
+  // Returns: The number in nums that doesn't appear twice
+  int compute() {
+    int result{0};
     for (size_t i{0}; i < n; ++i) {
-      result += arr[i];
+      result ^= nums[i];
     }
     return result;
   }
@@ -34,7 +35,7 @@ public:
 class Solution {
 
 public:
-  bool hasDuplicate(std::vector<unsigned long int> &nums) {
+  int singleNumber(std::vector<int> &nums) {
     return Alg(nums.size(), nums).compute();
   }
 };

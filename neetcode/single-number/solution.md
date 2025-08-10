@@ -1,29 +1,25 @@
 # single-number 
 ## Input 
-An array of ints, and an implicit size n
+An array of ints, nums (size n, infer automatically)
 ## Problem 
-For a given array of ints, where every integer appears twice except one, which only appears once. We have to find it in O(n), and use O(1) space.
+In an array nums, all numbers appear twice except one number, find this number.
 ## Output 
-A single integer that only appeared once.
+The number which doesn't occur twice.
 ## Constraints 
-n >=1 and <= 10000
-arr[i] >= -10000 and <= 10000
+n >= 1 and <= 10000
+nums[i] >= -10000 and <= 10000
 ## Observations 
-We can see that the values of arr are within the range -10K to +10K, meaning we need a signed int. We can use a short signed int as it has the range -32K to +32K.
+n is always a positive int and not that big, nums[i] is the same but it can be negative as well. 
 ## Solution 
-This is a problem about bit manipulation, as we can use a single signed short integer and XOR (in c++ done with '^' symbol) every number that appears in the array with it. XOR has the property, that it only gives 1 when exactly 1 bit out of 2 is 1. Meaning if there's 2 numbers in binary, 001 and 001, since they repeat the first time they XOR with our number (set at 0 initially), our number becomes 0001 and the second time they are XORed we get 0000, so the number "loses" the number that repeats, but doesn't for the number that doesn't repeat. 
-What if we have intersecting bits ?
-Say we have 0011, 0001 and 0011.
-Then, 0011 XOR 0000 XOR 0001 would give us 
-0010
-Then 0010 XOR 0011 would give us
-0001
-and hence our original number is returned from the mix. 
-This operation effectively removes a repeating bit combination and exactly and only that from a number.
+We simply iterate over the array and XOR the values, XOR is an operation that gets cancelled out when same values are given, hence any distinct value can be detected by it. It is a boolean operation meant to detect errors because of this property.
 
-TC: O(n) SC: O(1) Time taken to solve: ~20-30 mins, most of the time was just spent doing other irl stuff
-## Problem Categories
+TC: O(n) SC: O(1) Time taken to solve: NA
+## Problem Categories 
+
 Bit Manipulation
 ## Lessons to remember 
-1. Try to finish the problem in one go.
-2. Learn logic gates.
+
+1. Solve the problem whole in one go, don't put it for later.
+2. Learn boolean algebra basics, the why of XOR being like the way it is, is also important.
+3. Had an error with the result where it was always 1. I didn't check the return type of the `singleNumber()` when i modifed it from the template. Always check if the template is correctly modified. Can be resolved if we do the problem in one go directly.
+   
