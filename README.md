@@ -1,6 +1,12 @@
 # DSA
 Data Structures, and algorithms
 
+# How to execute problems
+1. Linux is a requirement, because of the scripts and vs code properties, but that's only for execution helpers. If you can set-up execution for your environment (Windows/Mac/etc.) then go ahead and run the `.cpp` files using those.
+2. Run `bash setup.sh` to install pre-requisites. One additional pre-requisite is installing VSCode Microsoft C++ extension to have `cppdbg`, this is a debugger with integration with VSCode so we can use IDE for debugging. If not using vscode or not needing IDE based debugging, feel free to avoid installing the extension.
+3. To run any problem, just run `bash run.sh <cpp file path>`. 
+4. `bash snop.sh <file problem URL>` can help set up new problems (parses the URL, creates folders and then copies the `template.cpp` and some other small first time setups).
+
 # Problem Sources
 1. Hackerrank
 2. https://neetcode.io/practice?tab=neetcode250
@@ -11,7 +17,7 @@ Data Structures, and algorithms
 
 # Some problem sites
 1. https://seanprashad.com/leetcode-patterns/
-2. https://neetcode.io/practice?tab=neetcode150
+2. https://neetcode.io/practice?tab=neetcode250
 
 # Leftovers
 1. In hackerrank's between 2 sets, we use LCM and GCD. Still have to learn how exactly GCD is calculated and what it is.

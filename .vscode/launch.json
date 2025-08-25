@@ -2,23 +2,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "C/C++ Runner: Debug Session",
+      "name": "Debug (gdb, active file)",
       "type": "cppdbg",
       "request": "launch",
+      "program": "${fileDirname}/.vscode/bin/${fileBasenameNoExtension}",
       "args": [],
-      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
       "externalConsole": false,
-      "cwd": "/home/cryo/cryoelite/DSA",
-      "program": "/home/cryo/cryoelite/DSA/build/Debug/outDebug",
       "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
-      "setupCommands": [
-        {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ]
+      "miDebuggerPath": "/usr/bin/gdb",
+      "stopAtEntry": false,
+      "preLaunchTask": "Build (clang++ C++20 strict O2)"
     }
   ]
 }

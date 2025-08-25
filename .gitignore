@@ -1,3 +1,7 @@
+#Visual Studio Code debug files
+.vscode/bin/
+.vscode/build/
+
 # Prerequisites
 *.d
 
