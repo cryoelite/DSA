@@ -1,4 +1,4 @@
-// Problem: <url>
+// Problem: https://neetcode.io/problems/single-number
 
 #include <iostream>
 #include <vector>
@@ -19,6 +19,9 @@ public:
 
   int compute() {
     int result{0};
+    for (size_t i{0}; i < n; ++i) {
+        result ^= arr[i];
+    }
     return result;
   }
 
@@ -31,7 +34,7 @@ public:
 class Solution {
 
 public:
-  bool hasDuplicate(std::vector<int> &nums) {
+  int singleNumber(std::vector<int> &nums) {
     return Alg(nums.size(), std::move(nums)).compute();
   }
 };

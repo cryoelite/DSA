@@ -5,14 +5,16 @@
       "name": "Debug (gdb, active file)",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}/.vscode/bin/${fileBasenameNoExtension}",
-      "args": [],
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [
+        "LOCAL"
+      ],
       "cwd": "${fileDirname}",
       "externalConsole": false,
       "MIMode": "gdb",
       "miDebuggerPath": "/usr/bin/gdb",
       "stopAtEntry": false,
-      "preLaunchTask": "Build (clang++ C++20 strict O2)"
+      "preLaunchTask": "Build (clang++ C++20 strict O1)"
     }
   ]
 }
