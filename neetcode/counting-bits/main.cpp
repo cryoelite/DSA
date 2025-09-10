@@ -1,5 +1,6 @@
 // Problem: https://neetcode.io/problems/counting-bits
 
+#include <cmath>
 #include <iostream>
 #include <vector>
 class Alg {
@@ -16,12 +17,13 @@ public:
 
   void compute() {
     result = std::vector<int>(n + 1, 0);
-    for (size_t i{0}; i <= n; ++i) {
-      int k{static_cast<int>(i)};
-      while (k) {
-        ++result[i];
-        k &= (k - 1);
-      }
+    if (n > 0) {
+      result[0] = 0;
+      result[1] = 1;
+    }
+    for (size_t i{2}; i <= n; ++i) {
+      result[i] = 1 + result[i - static_cast<size_t>(
+                                     std::pow(2, std::floor(std::log2(i))))];
     }
   }
 
