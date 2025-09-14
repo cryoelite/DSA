@@ -11,7 +11,7 @@
     {
       "label": "Valgrind (memcheck) — run active binary",
       "type": "shell",
-      "dependsOn": "Build (clang++ C++20 strict O1)",
+      "dependsOn": "Build (clang++ C++20 strict)",
       "command": "valgrind",
       "args": [
         "-s",
@@ -25,13 +25,12 @@
       "problemMatcher": []
     },
     {
-      "label": "Build (clang++ C++20 strict O1)",
+      "label": "Build (clang++ C++20 strict)",
       "type": "shell",
       "dependsOn": "Clang-tidy",
       "command": "clang++",
       "args": [
         "-std=c++20",
-        "-O1",
         "-g",
         "-flto",
         "-DNDEBUG",

@@ -14,7 +14,7 @@
       "MIMode": "gdb",
       "miDebuggerPath": "/usr/bin/gdb",
       "stopAtEntry": false,
-      "preLaunchTask": "Build (clang++ C++20 strict O1)"
+      "preLaunchTask": "Build (clang++ C++20 strict)"
     }
   ]
 }
