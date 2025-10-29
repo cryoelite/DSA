@@ -1,0 +1,36 @@
+[
+  {
+    "directory": "/home/cryo/Git/cryo/DSA",
+    "file": "neetcode/sum-of-two-integers/main.cpp",
+    "command": "clang++ -xc++ -std=c++20 -Wall -Wno-missing-prototypes -pedantic -O1 neetcode/sum-of-two-integers/main.cpp -o neetcode/sum-of-two-integers/main",
+    "arguments": [
+      "clang++",
+      "-xc++",
+      "-std=c++20",
+      "-Wall",
+      "-Wno-missing-prototypes",
+      "-pedantic",
+      "-O1",
+      "neetcode/sum-of-two-integers/main.cpp",
+      "-o",
+      "neetcode/sum-of-two-integers/main"
+    ]
+  },
+  {
+    "directory": "/home/cryo/Git/cryo/DSA",
+    "file": "neetcode/add-binary/main.cpp",
+    "command": "clang++ -xc++ -std=c++20 -Wall -Wno-missing-prototypes -pedantic -O1 neetcode/add-binary/main.cpp -o neetcode/add-binary/main",
+    "arguments": [
+      "clang++",
+      "-xc++",
+      "-std=c++20",
+      "-Wall",
+      "-Wno-missing-prototypes",
+      "-pedantic",
+      "-O1",
+      "neetcode/add-binary/main.cpp",
+      "-o",
+      "neetcode/add-binary/main"
+    ]
+  }
+]
