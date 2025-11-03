@@ -1,40 +1,52 @@
-// Problem: https://neetcode.io/problems/reverse-integer
+// Problem: https://neetcode.io/problems/majority-element
 
-#include <cmath>
 #include <iostream>
-#include <limits>
 #include <vector>
 class Alg {
 public:
-  int x{};
+  size_t n{};
+  std::vector<int> arr{};
 
-  Alg() { std::cin >> x; }
-  Alg(int x) : x(x) {}
+  Alg() {
+    std::cin >> n;
+    arr = std::vector<int>(n, 0);
+
+    for (size_t i = 0; i < n; i++) {
+      std::cin >> arr[i];
+    }
+  }
+  Alg(size_t n, std::vector<int> &&arr) : n(n), arr(std::move(arr)) {}
 
   int compute() {
-    constexpr int k_int_max{std::numeric_limits<int>::max()};
-    constexpr int k_int_min{std::numeric_limits<int>::min()};
     int result{0};
-    while (x != 0) {
-      if ((result > k_int_max / 10 && result > k_int_max - x % 10) ||
-          (result < k_int_min / 10 && result < k_int_min + x % 10)) {
-        return 0;
+    int count{0};
+    for (size_t i{0}; i < n; ++i) {
+      if (arr[i] != result) {
+        if (count - 1 < 0) {
+          result = arr[i];
+          count = 1;
+        } else {
+          --count;
+        }
+      } else {
+        ++count;
       }
-      result = result * 10 + x % 10;
-      x /= 10;
     }
-
     return result;
   }
+
   void compute_and_output() {
     std::cout << compute();
     std::cout << std::endl;
   }
 };
+
 class Solution {
 
 public:
-  int reverse(int x) { return Alg(x).compute(); }
+  int majorityElement(std::vector<int> &nums) {
+    return Alg(nums.size(), std::move(nums)).compute();
+  }
 };
 
 /// If argv has a value "LOCAL", then it is for local testing mode, otherwise,
